@@ -161,7 +161,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SearchType } from "@/types/search";
 
 const tabs: SearchType[] = [
@@ -177,13 +177,19 @@ const tabs: SearchType[] = [
 const TourSearch = () => {
   const router = useRouter();
   const [destination, setDestination] = useState("");
-
+  const[mounted, setMounted] = useState(false);
   const handleSearch = () => {
     if (!destination.trim()) return;
     router.push(
       `/search?type=tour&destination=${encodeURIComponent(destination)}`
     );
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; 
 
   return (
     <div
