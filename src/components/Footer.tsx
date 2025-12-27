@@ -40,16 +40,28 @@
 //     )
 // }
 
-
+"use client"
 
 // Responsive
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+
+ const footerPathname = usePathname();
+ const isHomePage = footerPathname === "/";
+ const isTourSeachPage = footerPathname === "/search";
   return (
-    <footer className="bg-gray-50 mt-20 px-6 py-12">
+    <footer 
+    className = {`
+      w-full bg-gray-50 px-6 py-8
+      ${isHomePage ? "mt-45" : ""}
+      ${isTourSeachPage ? "relative mt-35" : ""}
+
+      `}
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 gap-10 md:grid-cols-3">
 
         {/* Brand */}

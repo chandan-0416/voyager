@@ -1,0 +1,634 @@
+{
+  "destination": {
+    "id": "dest_dubai",
+    "name": "Dubai",
+    "country": "United Arab Emirates",
+    "currency": "AED",
+    "timezone": "GMT+4"
+  },
+
+  "tourTypes": [
+    "Desert Safari",
+    "City Sightseeing",
+    "Adventure",
+    "Luxury",
+    "Theme Parks",
+    "Cruise & Yacht",
+    "Cultural Experiences"
+  ],
+
+  "experiences": [
+    {
+      "experienceId": "1",
+      "title": "Dubai Desert Safari with BBQ Dinner & Live Shows",
+      "slug": "dubai-desert-safari-bbq-live-shows",
+      "tourType": "Desert Safari",
+      "destination": "dubai",
+      "tags": ["Trending", "Best Seller", "Family Friendly"],
+
+      "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
+      "fullDescription": "This evening desert safari offers an adrenaline-filled dune bashing experience in a 4x4 vehicle, camel riding, sandboarding, henna painting, and a delicious BBQ dinner with live belly dance and Tanoura performances.",
+
+      "images": [
+       "/tour1.jpg"
+      ],
+
+      "duration": {
+        "total": "6 hours",
+        "pickupIncluded": true,
+        "pickupTime": "3:00 PM - 3:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-05",
+        "2025-01-06",
+        "2025-01-07"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 150,
+        "child": 120,
+        "infant": 0,
+        "discount": {
+          "percentage": 10,
+          "validTill": "2025-02-01"
+        }
+      },
+
+      "rating": {
+        "score": 4.7,
+        "totalReviews": 2341
+      },
+
+      "cancellationPolicy": {
+        "type": "Free Cancellation",
+        "details": "Cancel up to 24 hours in advance for a full refund."
+      },
+
+      "supplier": {
+        "name": "Arabian Adventures LLC",
+        "licenseNumber": "DXB-ADV-2391",
+        "contact": "+971-50-123-4567"
+      },
+
+      "inclusions": [
+        "Hotel pickup & drop-off",
+        "Dune bashing",
+        "Camel ride",
+        "BBQ dinner",
+        "Live entertainment"
+      ],
+
+      "exclusions": [
+        "Quad biking",
+        "Alcoholic beverages"
+      ],
+
+      "meetingPoint": "Hotel pickup in Dubai",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    },
+
+    {
+      "experienceId": "2",
+      "title": "Burj Khalifa At The Top – Level 124 & 125",
+      "slug": "burj-khalifa-at-the-top-124-125",
+      "tourType": "City Sightseeing",
+      "destination": "dubai",
+      "tags": ["Must Visit", "Iconic"],
+
+      "shortDescription": "Visit the world’s tallest building and enjoy panoramic views of Dubai.",
+      "fullDescription": "Take the high-speed elevator to the observation decks on levels 124 and 125 of Burj Khalifa. Enjoy stunning city views, interactive displays, and photo opportunities.",
+
+      "images": [
+        
+        "/tour2.jpg"
+      ],
+
+      "duration": {
+        "total": "1.5 hours",
+        "pickupIncluded": false
+      },
+
+      "availableDates": [
+        "2025-01-01",
+        "2025-01-02",
+        "2025-01-03"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 169,
+        "child": 129
+      },
+
+      "rating": {
+        "score": 4.5,
+        "totalReviews": 5120
+      },
+
+      "cancellationPolicy": {
+        "type": "Non-Refundable",
+        "details": "Once booked, tickets cannot be cancelled or modified."
+      },
+
+      "supplier": {
+        "name": "Emaar Attractions",
+        "licenseNumber": "EMAAR-DXB-7781"
+      },
+
+      "meetingPoint": "Dubai Mall, Lower Ground Level",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    },
+
+    {
+      "experienceId": "3",
+      "title": "Luxury Yacht Cruise with Dinner at Dubai Marina",
+      "slug": "luxury-yacht-dinner-cruise-dubai-marina",
+      "tourType": "Cruise & Yacht",
+      "destination": "dubai",
+      "tags": ["Luxury", "Couples", "Evening"],
+
+      "shortDescription": "Sail through Dubai Marina on a luxury yacht with gourmet dinner.",
+      "fullDescription": "Enjoy a relaxing luxury yacht cruise featuring a gourmet dinner, live music, and breathtaking skyline views of Dubai Marina, Ain Dubai, and JBR.",
+
+      "images": [
+        "/tour3.jpg"
+      ],
+
+      "duration": {
+        "total": "2 hours",
+        "boardingTime": "7:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-10",
+        "2025-01-11"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 299
+      },
+
+      "rating": {
+        "score": 4.8,
+        "totalReviews": 1840
+      },
+
+      "cancellationPolicy": {
+        "type": "Partial Refund",
+        "details": "50% refund if cancelled 48 hours before departure."
+      },
+
+      "supplier": {
+        "name": "Dubai Marina Yacht Club",
+        "licenseNumber": "DMYC-9921"
+      },
+
+      "isTrending": false,
+      "instantConfirmation": true
+    },
+
+     {
+      "experienceId": "4",
+      "title": "Dubai City Tour with Blue Mosque & Palm Jumeirah",
+      "slug": "dubai-desert-safari-bbq-live-shows",
+      "tourType": "Desert Safari",
+      "destination": "dubai",
+      "tags": ["Trending", "Best Seller", "Family Friendly"],
+
+      "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
+      "fullDescription": "This evening desert safari offers an adrenaline-filled dune bashing experience in a 4x4 vehicle, camel riding, sandboarding, henna painting, and a delicious BBQ dinner with live belly dance and Tanoura performances.",
+
+      "images": [
+        "/tour4.jpg"
+      ],
+
+      "duration": {
+        "total": "6 hours",
+        "pickupIncluded": true,
+        "pickupTime": "3:00 PM - 3:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-05",
+        "2025-01-06",
+        "2025-01-07"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 150,
+        "child": 120,
+        "infant": 0,
+        "discount": {
+          "percentage": 10,
+          "validTill": "2025-02-01"
+        }
+      },
+
+      "rating": {
+        "score": 4.7,
+        "totalReviews": 2341
+      },
+
+      "cancellationPolicy": {
+        "type": "Free Cancellation",
+        "details": "Cancel up to 24 hours in advance for a full refund."
+      },
+
+      "supplier": {
+        "name": "Arabian Adventures LLC",
+        "licenseNumber": "DXB-ADV-2391",
+        "contact": "+971-50-123-4567"
+      },
+
+      "inclusions": [
+        "Hotel pickup & drop-off",
+        "Dune bashing",
+        "Camel ride",
+        "BBQ dinner",
+        "Live entertainment"
+      ],
+
+      "exclusions": [
+        "Quad biking",
+        "Alcoholic beverages"
+      ],
+
+      "meetingPoint": "Hotel pickup in Dubai",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    },
+
+     {
+      "experienceId": "5",
+      "title": "Atlantis Aquaventure Waterpark Tickets",
+      "slug": "dubai-desert-safari-bbq-live-shows",
+      "tourType": "Desert Safari",
+      "destination": "dubai",
+      "tags": ["Trending", "Best Seller", "Family Friendly"],
+
+      "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
+      "fullDescription": "This evening desert safari offers an adrenaline-filled dune bashing experience in a 4x4 vehicle, camel riding, sandboarding, henna painting, and a delicious BBQ dinner with live belly dance and Tanoura performances.",
+
+      "images": [
+       "/tour5.jpg"
+      ],
+
+      "duration": {
+        "total": "6 hours",
+        "pickupIncluded": true,
+        "pickupTime": "3:00 PM - 3:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-05",
+        "2025-01-06",
+        "2025-01-07"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 150,
+        "child": 120,
+        "infant": 0,
+        "discount": {
+          "percentage": 10,
+          "validTill": "2025-02-01"
+        }
+      },
+
+      "rating": {
+        "score": 4.7,
+        "totalReviews": 2341
+      },
+
+      "cancellationPolicy": {
+        "type": "Free Cancellation",
+        "details": "Cancel up to 24 hours in advance for a full refund."
+      },
+
+      "supplier": {
+        "name": "Arabian Adventures LLC",
+        "licenseNumber": "DXB-ADV-2391",
+        "contact": "+971-50-123-4567"
+      },
+
+      "inclusions": [
+        "Hotel pickup & drop-off",
+        "Dune bashing",
+        "Camel ride",
+        "BBQ dinner",
+        "Live entertainment"
+      ],
+
+      "exclusions": [
+        "Quad biking",
+        "Alcoholic beverages"
+      ],
+
+      "meetingPoint": "Hotel pickup in Dubai",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    },
+     {
+      "experienceId": "6",
+      "title": "Dhow Cruise Dinner at Dubai Creek",
+      "slug": "dubai-desert-safari-bbq-live-shows",
+      "tourType": "Desert Safari",
+      "destination": "dubai",
+      "tags": ["Trending", "Best Seller", "Family Friendly"],
+
+      "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
+      "fullDescription": "This evening desert safari offers an adrenaline-filled dune bashing experience in a 4x4 vehicle, camel riding, sandboarding, henna painting, and a delicious BBQ dinner with live belly dance and Tanoura performances.",
+
+      "images": [
+        "/tour6.jpg"
+      ],
+
+      "duration": {
+        "total": "6 hours",
+        "pickupIncluded": true,
+        "pickupTime": "3:00 PM - 3:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-05",
+        "2025-01-06",
+        "2025-01-07"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 150,
+        "child": 120,
+        "infant": 0,
+        "discount": {
+          "percentage": 10,
+          "validTill": "2025-02-01"
+        }
+      },
+
+      "rating": {
+        "score": 4.7,
+        "totalReviews": 2341
+      },
+
+      "cancellationPolicy": {
+        "type": "Free Cancellation",
+        "details": "Cancel up to 24 hours in advance for a full refund."
+      },
+
+      "supplier": {
+        "name": "Arabian Adventures LLC",
+        "licenseNumber": "DXB-ADV-2391",
+        "contact": "+971-50-123-4567"
+      },
+
+      "inclusions": [
+        "Hotel pickup & drop-off",
+        "Dune bashing",
+        "Camel ride",
+        "BBQ dinner",
+        "Live entertainment"
+      ],
+
+      "exclusions": [
+        "Quad biking",
+        "Alcoholic beverages"
+      ],
+
+      "meetingPoint": "Hotel pickup in Dubai",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    },
+
+     {
+      "experienceId": "7",
+      "title": "Hot Air Balloon Ride Over Dubai Desert",
+      "slug": "dubai-desert-safari-bbq-live-shows",
+      "tourType": "Desert Safari",
+      "destination": "dubai",
+      "tags": ["Trending", "Best Seller", "Family Friendly"],
+
+      "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
+      "fullDescription": "This evening desert safari offers an adrenaline-filled dune bashing experience in a 4x4 vehicle, camel riding, sandboarding, henna painting, and a delicious BBQ dinner with live belly dance and Tanoura performances.",
+
+      "images": [
+        "/tour7.jpg"
+      ],
+
+      "duration": {
+        "total": "6 hours",
+        "pickupIncluded": true,
+        "pickupTime": "3:00 PM - 3:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-05",
+        "2025-01-06",
+        "2025-01-07"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 150,
+        "child": 120,
+        "infant": 0,
+        "discount": {
+          "percentage": 10,
+          "validTill": "2025-02-01"
+        }
+      },
+
+      "rating": {
+        "score": 4.7,
+        "totalReviews": 2341
+      },
+
+      "cancellationPolicy": {
+        "type": "Free Cancellation",
+        "details": "Cancel up to 24 hours in advance for a full refund."
+      },
+
+      "supplier": {
+        "name": "Arabian Adventures LLC",
+        "licenseNumber": "DXB-ADV-2391",
+        "contact": "+971-50-123-4567"
+      },
+
+      "inclusions": [
+        "Hotel pickup & drop-off",
+        "Dune bashing",
+        "Camel ride",
+        "BBQ dinner",
+        "Live entertainment"
+      ],
+
+      "exclusions": [
+        "Quad biking",
+        "Alcoholic beverages"
+      ],
+
+      "meetingPoint": "Hotel pickup in Dubai",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    },
+
+     {
+      "experienceId": "8",
+      "title": "Global Village Entry Ticket",
+      "slug": "dubai-desert-safari-bbq-live-shows",
+      "tourType": "Desert Safari",
+      "destination": "dubai",
+      "tags": ["Trending", "Best Seller", "Family Friendly"],
+
+      "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
+      "fullDescription": "This evening desert safari offers an adrenaline-filled dune bashing experience in a 4x4 vehicle, camel riding, sandboarding, henna painting, and a delicious BBQ dinner with live belly dance and Tanoura performances.",
+
+      "images": [
+       "/tour8.jpg"
+      ],
+
+      "duration": {
+        "total": "6 hours",
+        "pickupIncluded": true,
+        "pickupTime": "3:00 PM - 3:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-05",
+        "2025-01-06",
+        "2025-01-07"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 150,
+        "child": 120,
+        "infant": 0,
+        "discount": {
+          "percentage": 10,
+          "validTill": "2025-02-01"
+        }
+      },
+
+      "rating": {
+        "score": 4.7,
+        "totalReviews": 2341
+      },
+
+      "cancellationPolicy": {
+        "type": "Free Cancellation",
+        "details": "Cancel up to 24 hours in advance for a full refund."
+      },
+
+      "supplier": {
+        "name": "Arabian Adventures LLC",
+        "licenseNumber": "DXB-ADV-2391",
+        "contact": "+971-50-123-4567"
+      },
+
+      "inclusions": [
+        "Hotel pickup & drop-off",
+        "Dune bashing",
+        "Camel ride",
+        "BBQ dinner",
+        "Live entertainment"
+      ],
+
+      "exclusions": [
+        "Quad biking",
+        "Alcoholic beverages"
+      ],
+
+      "meetingPoint": "Hotel pickup in Dubai",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    },
+
+     {
+      "experienceId": "9",
+      "title": "IMG Worlds of Adventure Theme Park",
+      "slug": "dubai-desert-safari-bbq-live-shows",
+      "tourType": "Desert Safari",
+      "destination": "dubai",
+      "tags": ["Trending", "Best Seller", "Family Friendly"],
+
+      "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
+      "fullDescription": "This evening desert safari offers an adrenaline-filled dune bashing experience in a 4x4 vehicle, camel riding, sandboarding, henna painting, and a delicious BBQ dinner with live belly dance and Tanoura performances.",
+
+      "images": [
+     "/tour9.jpg"
+      ],
+
+      "duration": {
+        "total": "6 hours",
+        "pickupIncluded": true,
+        "pickupTime": "3:00 PM - 3:30 PM"
+      },
+
+      "availableDates": [
+        "2025-01-05",
+        "2025-01-06",
+        "2025-01-07"
+      ],
+
+      "priceRange": {
+        "currency": "AED",
+        "adult": 150,
+        "child": 120,
+        "infant": 0,
+        "discount": {
+          "percentage": 10,
+          "validTill": "2025-02-01"
+        }
+      },
+
+      "rating": {
+        "score": 4.7,
+        "totalReviews": 2341
+      },
+
+      "cancellationPolicy": {
+        "type": "Free Cancellation",
+        "details": "Cancel up to 24 hours in advance for a full refund."
+      },
+
+      "supplier": {
+        "name": "Arabian Adventures LLC",
+        "licenseNumber": "DXB-ADV-2391",
+        "contact": "+971-50-123-4567"
+      },
+
+      "inclusions": [
+        "Hotel pickup & drop-off",
+        "Dune bashing",
+        "Camel ride",
+        "BBQ dinner",
+        "Live entertainment"
+      ],
+
+      "exclusions": [
+        "Quad biking",
+        "Alcoholic beverages"
+      ],
+
+      "meetingPoint": "Hotel pickup in Dubai",
+
+      "isTrending": true,
+      "instantConfirmation": true
+    }         
+  ]
+}

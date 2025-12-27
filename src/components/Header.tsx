@@ -44,7 +44,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full px-4 py-3 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 w-full px-4 py-3 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Logo */}
