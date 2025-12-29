@@ -14,17 +14,13 @@
 //         </section>
 //         <Footer />
 //       </div>
-
 //     </div>
-
 //   )
 // }
 
 //Responsive
 
 import Main from "@/components/Main";
-
-
 export default function Home() {
   return (
     <div className=" flex justify-center w-full min-h-screen bg-white flex-col">   

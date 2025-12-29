@@ -1,7 +1,4 @@
 // import TourSearch from "./TourSearch";
-
-import TourSearch from "./TourSearch";
-
 // export default function Main() {
 //   return (
 //     <div className="relative w-screen h-screen overflow-hidden">
@@ -33,8 +30,7 @@ import TourSearch from "./TourSearch";
 
 // Responsive
 
-
-
+import TourSearch from "./TourSearch";
 
 export default function Main() {
   return (
@@ -67,7 +63,6 @@ export default function Main() {
       >
         <TourSearch />
       </div>
-
     </div>
   );
 }

@@ -24,10 +24,8 @@
 //       `/search?type=tour&destination=${encodeURIComponent(destination)}`
 //     );
 //   };
-
 //   return (
 //     <div className="bg-white p-10  rounded-2xl shadow-lg w-full max-w-6xl mx-auto">
-
 //       {/* Tabs */}
 //       <div className="flex gap-3 mb-6 overflow-x-auto">
 //         {tabs.map((tab) => (
@@ -44,7 +42,6 @@
 //           </button>
 //         ))}
 //       </div>
-
 //       {/* Search */}
 //       <form
 //         onSubmit={(e) => {
@@ -60,7 +57,6 @@
 //           onChange={(e) => setDestination(e.target.value)}
 //           className="w-full border rounded-xl py-6 pl-6 pr-28 text-black focus:outline-none border-t border-black/30"
 //         />
-
 //         <button
 //           type="submit"
 //           className="absolute right-1 top-1/2 -translate-y-1/2 bg-pink-500 hover:bg-pink-600 text-white p-6 rounded-lg text-sm font-semibold"
@@ -68,13 +64,10 @@
 //           Search
 //         </button>
 //       </form>
-
 //     </div>
 //   );
 // };
-
 // export default TourSearch;
-
 
 
 // Responsive  - Search on Main | Home Page
