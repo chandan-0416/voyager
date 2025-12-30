@@ -47,8 +47,8 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 150,
-        "child": 120,
+        "adult": 60,
+        "child": 30,
         "infant": 0,
         "discount": {
           "percentage": 10,
@@ -57,12 +57,12 @@
       },
 
       "rating": {
-        "score": 4.7,
+        "score": 1.2,
         "totalReviews": 2341
       },
 
       "cancellationPolicy": {
-        "type": "Free Cancellation",
+        "type": "Free Cancellation 24 Hours Prior",
         "details": "Cancel up to 24 hours in advance for a full refund."
       },
 
@@ -120,17 +120,17 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 169,
+        "adult": 95,
         "child": 129
       },
 
       "rating": {
-        "score": 4.5,
+        "score": 2,
         "totalReviews": 5120
       },
 
       "cancellationPolicy": {
-        "type": "Non-Refundable",
+        "type": "Non Refundable",
         "details": "Once booked, tickets cannot be cancelled or modified."
       },
 
@@ -172,17 +172,17 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 299
+        "adult": 120
       },
 
       "rating": {
-        "score": 4.8,
+        "score": 3,
         "totalReviews": 1840
       },
 
       "cancellationPolicy": {
-        "type": "Partial Refund",
-        "details": "50% refund if cancelled 48 hours before departure."
+        "type": "Free Cancellation 24 Hours Prior",
+        "details": "100% refund if cancelled 28 hours before departure."
       },
 
       "supplier": {
@@ -223,7 +223,7 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 150,
+        "adult": 180,
         "child": 120,
         "infant": 0,
         "discount": {
@@ -233,12 +233,12 @@
       },
 
       "rating": {
-        "score": 4.7,
+        "score": 2.7,
         "totalReviews": 2341
       },
 
       "cancellationPolicy": {
-        "type": "Free Cancellation",
+        "type": "Free Cancellation 48 Hours Prior",
         "details": "Cancel up to 24 hours in advance for a full refund."
       },
 
@@ -296,7 +296,7 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 150,
+        "adult": 230,
         "child": 120,
         "infant": 0,
         "discount": {
@@ -306,12 +306,12 @@
       },
 
       "rating": {
-        "score": 4.7,
+        "score": 5,
         "totalReviews": 2341
       },
 
       "cancellationPolicy": {
-        "type": "Free Cancellation",
+        "type": "Free Cancellation 24 Hours Prior",
         "details": "Cancel up to 24 hours in advance for a full refund."
       },
 
@@ -368,7 +368,7 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 150,
+        "adult": 380,
         "child": 120,
         "infant": 0,
         "discount": {
@@ -378,13 +378,13 @@
       },
 
       "rating": {
-        "score": 4.7,
+        "score": 3.5,
         "totalReviews": 2341
       },
 
       "cancellationPolicy": {
-        "type": "Free Cancellation",
-        "details": "Cancel up to 24 hours in advance for a full refund."
+        "type": "Non Refundable",
+        "details": "Once booked, tickets cannot be cancelled or modified."
       },
 
       "supplier": {
@@ -441,7 +441,7 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 150,
+        "adult": 450,
         "child": 120,
         "infant": 0,
         "discount": {
@@ -451,12 +451,12 @@
       },
 
       "rating": {
-        "score": 4.7,
+        "score": 4,
         "totalReviews": 2341
       },
 
       "cancellationPolicy": {
-        "type": "Free Cancellation",
+        "type": "Free Cancellation 24 Hours Prior",
         "details": "Cancel up to 24 hours in advance for a full refund."
       },
 
@@ -514,7 +514,7 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 150,
+        "adult": 550,
         "child": 120,
         "infant": 0,
         "discount": {
@@ -524,12 +524,12 @@
       },
 
       "rating": {
-        "score": 4.7,
+        "score": 5,
         "totalReviews": 2341
       },
 
       "cancellationPolicy": {
-        "type": "Free Cancellation",
+        "type": "Free Cancellation 48 Hours Prior",
         "details": "Cancel up to 24 hours in advance for a full refund."
       },
 
@@ -587,7 +587,7 @@
 
       "priceRange": {
         "currency": "AED",
-        "adult": 150,
+        "adult": 750,
         "child": 120,
         "infant": 0,
         "discount": {
@@ -597,13 +597,13 @@
       },
 
       "rating": {
-        "score": 4.7,
+        "score": 4.8,
         "totalReviews": 2341
       },
 
       "cancellationPolicy": {
-        "type": "Free Cancellation",
-        "details": "Cancel up to 24 hours in advance for a full refund."
+        "type": "Free Cancellation 48 Hours Prior",
+        "details": "Cancel up to 48 hours in advance for a full refund."
       },
 
       "supplier": {
