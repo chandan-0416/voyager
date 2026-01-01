@@ -53,10 +53,11 @@ export default function Footer() {
  const footerPathname = usePathname();
  const isHomePage = footerPathname === "/";
  const isTourSeachPage = footerPathname === "/search";
+ 
   return (
     <footer 
     className = {`
-      w-full bg-gray-50 px-6 py-8
+      w-full px-6 py-8
       ${isHomePage ? "mt-45" : ""}
       ${isTourSeachPage ? "relative mt-35" : ""}
 

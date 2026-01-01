@@ -1,16 +1,19 @@
 # Voyger : Tour website
-- layout of the App
-Header
+- layout of the App 
+
+# 31-12-2025 | solve Problems
+- make the component based folder structure
+- loding page, error page, page not-found, 
+- show the skelton fallback when i do filter
+- correct the rating multibox selected
+- change the price range with horizontal scroll bar
 
 
 
-
-
-
-
-1. pinterest - HD photo
+1. pinterest - for HD photo
 2. make responsive, drop search suggestions 
-
+3. for the inspection change the color of div
+4. Accessibility (screen readers)
 # implement JSON into a frontend project in multiple ways
 1. Import Local JSON File (Static Import)
 

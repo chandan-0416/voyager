@@ -135,8 +135,6 @@
 // };
 // export default SearchPage;
 
-
-
 //  Responsive Page
 
 "use client";
@@ -156,11 +154,15 @@ const SearchPage = () => {
 
   // filter -1
   const price = searchParams.get("price");
-  const rating = searchParams.get("rating");
+  const ratingParam = searchParams.get("rating");
+
+  const ratings = useMemo(() => {
+    return ratingParam ? ratingParam.split(",").map(Number) : [];
+  }, [ratingParam]);
+
   const cancellationParams = useMemo(() => {
     return searchParams.get("cancellation")?.split(",") ?? [];
   }, [searchParams]);
-
 
 
   // Handlers (Event-driven navigation)
@@ -187,6 +189,27 @@ const SearchPage = () => {
     });
   };
 
+  const toggleRating = (value: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    const current = params.get("rating")
+      ? params.get("rating")!.split(",").map(Number)
+      : [];
+
+    const updated = current.includes(value)
+      ? current.filter(v => v !== value)
+      : [...current, value];
+
+    if (updated.length === 0) {
+      params.delete("rating");
+    } else {
+      params.set("rating", updated.join(","));
+    }
+
+    router.replace(`/search?${params.toString()}`, {
+      scroll: false,
+    });
+  };
 
   // filter -2
   const matchesPrice = (
@@ -205,10 +228,11 @@ const SearchPage = () => {
 
   const matchesRating = (
     ratingScore: number,
-    filter: string | null
+    filters: number[]
   ) => {
-    if (!filter) return true;
-    return Math.floor(ratingScore) === Number(filter); //Math.floor(x: number): number => Returns the greatest integer less than or equal to its numeric argument.
+    if (filters.length === 0) return true;
+    const rounded = Math.floor(ratingScore); //Math.floor(x: number): number => Returns the greatest integer less than or equal to its numeric argument.
+    return filters.includes(rounded);
   };
 
   const matchesCancellation = (
@@ -218,7 +242,6 @@ const SearchPage = () => {
     if (filters.length === 0) return true;
     return filters.includes(policy);
   };
-
 
   // Filter logic (memoized)
   const results = useMemo(() => {
@@ -231,7 +254,8 @@ const SearchPage = () => {
           .includes(query.toLowerCase());
 
       const priceMatch = matchesPrice(exp.priceRange, price);
-      const ratingMatch = matchesRating(exp.rating.score, rating);
+      const ratingMatch = matchesRating(exp.rating.score, ratings);
+
       const cancellationMatch = matchesCancellation(
         exp.cancellationPolicy.type,
         cancellationParams
@@ -239,17 +263,18 @@ const SearchPage = () => {
 
       return matchesSearch && priceMatch && ratingMatch && cancellationMatch;
     });
-  }, [query, price, rating, cancellationParams]);
+  }, [query, price, ratings, cancellationParams]);
 
   return (
-    <div className="bg-gray-50 min-h-screen px-4 md:px-12 pt-8 pb-24">
+
+    <div className=" min-h-screen px-4 md:px-12 pt-8 pb-24">
       {/* Title */}
       <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-8">
         Choose the Tours You’re Interested In
       </h1>
-      <div className="flex flex-col md:flex-row max-w-7xl mx-auto gap-6">
+      <div className="flex flex-col md:flex-row max-w-7xl mx-auto gap-6">  {/** sidebar and mainContent */}
         {/* Sidebar */}
-        <aside className="hidden md:block md:w-1/4 bg-white border border-gray-300 rounded-2xl p-6 shadow-sm h-fit">
+        <aside className="hidden md:block md:w-1/4 bg-white border border-gray-300 rounded-2xl p-6 shadow-sm h-fit sticky">
           <div className="flex flex-cols justify-between">
             <h2 className="text-xl font-bold mb-4">Filters</h2>
             <p className="">
@@ -280,38 +305,9 @@ const SearchPage = () => {
             ))}
           </div>
 
-
           <hr className="border-dashed border-gray-300 mt-4 mx-3 " />
 
-          <h3 className="font-semibold mt-6 mb-2">Rating</h3>
-          <div className="flex flex-col gap-2">
-            {[5, 4, 3, 2, 1].map((r) => (
-              <label
-                key={r}
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={rating === String(r)}
-                  onChange={() =>
-                    updateParam(
-                      "rating",
-
-                      rating === String(r) ? "" : String(r)
-                    )
-                  }
-                />
-                {"⭐".repeat(r)}
-              </label>
-            ))}
-          </div>
-
-          <hr className="border-dashed border-gray-300 mt-4 mx-3 " />
-
-          <h3 className="font-semibold mt-6 mb-2">
-            Cancellation Policy
-          </h3>
-
+          <h3 className="font-semibold mt-6 mb-2"> Cancellation Policy </h3>
           <div className="flex flex-col gap-2">
             {[
               "Free Cancellation 48 Hours Prior",
@@ -340,11 +336,32 @@ const SearchPage = () => {
               </label>
             ))}
           </div>
+         
+          <hr className="border-dashed border-gray-300 mt-4 mx-3 " />
 
+          <h3 className="font-semibold mt-6 mb-2">Rating</h3>
+          <div className="flex flex-col gap-2">
+            {[5, 4, 3, 2, 1].map((r) => (
+              <label
+                key={r}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  checked={ratings.includes(r)}
+
+                  onChange={() => toggleRating(r)}
+
+                />
+                {"⭐".repeat(r)}
+              </label>
+            ))}
+          </div>
 
         </aside>
 
         {/* Main */}
+
         <main className="md:w-3/4 flex flex-col gap-6">
           {/* Search + View Toggle */}
           <div className="flex items-center justify-between gap-4 bg-white p-4 rounded-2xl shadow">
@@ -388,6 +405,7 @@ const SearchPage = () => {
               No experiences found
             </p>
           ) : (
+
             <div
               className={`pt-6 ${view === "list"
                 ? "flex flex-col gap-4"
@@ -447,348 +465,19 @@ const SearchPage = () => {
                       {item.priceRange.adult}
                     </p>
                   </div>
+
                 </div>
               ))}
             </div>
+
           )}
+
         </main>
+
       </div>
     </div>
+
   );
 };
 
 export default SearchPage;
-
-
-
-
-// "use client";
-
-// import { useSearchParams, useRouter } from "next/navigation";
-// import { useMemo, useState } from "react";
-// import dubaiData from "@/data/dubaiExperiences.json";
-// import Image from "next/image";
-
-// /* ================= FILTER CONFIG ================= */
-
-// // type PriceRange = {
-// //   label: string;
-// //   min: number;
-// //   max: number;
-// // };
-
-// type DurationRange = {
-//   label: string;
-//   min?: number;
-//   max?: number;
-// };
-
-// // const PRICE_RANGES: PriceRange[] = [
-// //   { label: "Below AED 250", min: 0, max: 249 },
-// //   { label: "AED 250 – 340", min: 250, max: 340 },
-// //   { label: "Above AED 341", min: 341, max: 850 },
-// // ];
-
-// const RATING_RANGES = ["5", "4", "3", "2", "1"];
-
-
-// const DURATION_RANGES: DurationRange[] = [
-//   { label: "Up to 2 hours", max: 2 },
-//   { label: "2 – 4 hours", min: 2, max: 4 },
-//   { label: "More than 4 hours", min: 4 },
-// ];
-
-// const CANCELLATION_TYPES = ["Free Cancellation", "Non-Refundable"];
-
-// /* ================= COMPONENT ================= */
-
-// export default function SearchPage() {
-//   const searchParams = useSearchParams();
-//   const router = useRouter();
-//   const [view, setView] = useState(
-//     searchParams.get("view") === "list" ? "list" : "grid"
-//   );
-
-//   const query = searchParams.get("destination") ?? "";
-
-//   /* ================= URL PARAMS ================= */
-
-//   const selectedPrices = useMemo<string[]>(
-//     () => searchParams.get("price")?.split(",") ?? [],
-//     [searchParams]
-//   );
-
-//   const selectedRatings = useMemo<string[]>(
-//     () => searchParams.get("rating")?.split(",") ?? [],
-//     [searchParams]
-//   );
-
-//   const selectedDurations = useMemo<string[]>(
-//     () => searchParams.get("duration")?.split(",") ?? [],
-//     [searchParams]
-//   );
-
-//   const selectedCancellations = useMemo<string[]>(
-//     () => searchParams.get("cancel")?.split(",") ?? [],
-//     [searchParams]
-//   );
-
-//   const updateMultiParam = (key: string, values: string[]) => {
-//     const params = new URLSearchParams(searchParams.toString());
-//     if (values.length > 0) params.set(key, values.join(","));
-//     else params.delete(key);
-
-//     router.replace(`/search?${params.toString()}`, { scroll: false });
-//   };
-
-//   const toggleValue = (key: string, current: string[], value: string) => {
-//     const updated = current.includes(value)
-//       ? current.filter((v) => v !== value)
-//       : [...current, value];
-//     updateMultiParam(key, updated);
-//   };
-
-//   const updateParam = (key: string, value: string) => {
-//     const params = new URLSearchParams(searchParams.toString());
-//     if (value) params.set(key, value);
-//     else params.delete(key);
-//     router.replace(`/search?${params.toString()}`, {
-//       scroll: false,
-//     });
-//   };
-
-//   /* ================= FILTER LOGIC ================= */
-
-//   const results = useMemo(() => {
-//     return dubaiData.experiences.filter((exp) => {
-//       const matchesSearch =
-//         exp.title.toLowerCase().includes(query.toLowerCase()) ||
-//         exp.tourType.toLowerCase().includes(query.toLowerCase()) ||
-//         dubaiData.destination.name
-//           .toLowerCase()
-//           .includes(query.toLowerCase());
-
-//       const matchesPrice =
-//         selectedPrices.length === 0 ||
-//         exp.priceRange.adult <= Number(selectedPrices[0]);
-
-
-//       const matchesRating =
-//         selectedRatings.length === 0 ||
-//         selectedRatings.some((r) => exp.rating.score >= Number(r));
-
-//       const matchesCancellation =
-//         selectedCancellations.length === 0 ||
-//         selectedCancellations.some((c) =>
-//           exp.cancellationPolicy.type.includes(c)
-//         );
-
-//       const hours = Number.parseFloat(exp.duration.total.replace(/[^\d.]/g, ""));
-//       const matchesDuration =
-//         selectedDurations.length === 0 ||
-//         selectedDurations.some((label) => {
-//           const d = DURATION_RANGES.find((x) => x.label === label);
-//           if (!d) return false;
-//           if (d.min !== undefined && d.max !== undefined)
-//             return hours >= d.min && hours <= d.max;
-//           if (d.min !== undefined) return hours > d.min;
-//           if (d.max !== undefined) return hours <= d.max;
-//           return true;
-//         });
-
-//       return matchesSearch && matchesPrice && matchesRating && matchesCancellation && matchesDuration;
-//     });
-//   }, [query, selectedPrices, selectedRatings, selectedCancellations, selectedDurations]);
-
-//   /* ================= UI ================= */
-
-//   return (
-//     <div className="bg-gray-50 min-h-screen px-4 md:px-12 pt-8 pb-24">
-//       <h1 className="text-2xl md:text-3xl font-extrabold mb-8">
-//         Choose the Tours You’re Interested In
-//       </h1>
-
-//       <div className="flex flex-col md:flex-row max-w-7xl mx-auto gap-6">
-//         {/* ================= FILTER SIDEBAR ================= */}
-//         <aside className="hidden md:block md:w-1/4 bg-white rounded-2xl shadow p-6 space-y-6">
-//           <h2 className="text-xl font-bold border-b pb-3">Filters</h2>
-
-//           <FilterSection title="Price Range (AED)">
-//             <div className="overflow-x-auto">
-//               <input
-//                 type="range"
-//                 min={60}
-//                 max={850}
-//                 step={8}
-//                 value={selectedPrices[0] ? Number(selectedPrices[0]) : 65}
-//                 onChange={(e) =>
-//                   updateMultiParam("price", [e.target.value])
-//                 }
-//                 className="w-full accent-pink-500"
-//               />
-
-//               <div className="flex justify-between text-xs text-gray-600 mt-2">
-//                 <span>AED 60</span>
-//                 <span>AED 850</span>
-//               </div>
-
-//               <p className="text-sm font-semibold mt-2">
-//                 Selected: AED {selectedPrices[0] ?? 65}
-//               </p>
-//             </div>
-//           </FilterSection>
-
-
-//           <FilterSection title="Rating">
-//             {RATING_RANGES.map((r) => (
-//               <Checkbox
-//                 key={r}
-//                 label={`⭐ ${r}`}
-//                 checked={selectedRatings.includes(r)}
-//                 onChange={() => toggleValue("rating", selectedRatings, r)}
-//               />
-//             ))}
-//           </FilterSection>
-
-//           <FilterSection title="Cancellation">
-//             {CANCELLATION_TYPES.map((c) => (
-//               <Checkbox
-//                 key={c}
-//                 label={c}
-//                 checked={selectedCancellations.includes(c)}
-//                 onChange={() => toggleValue("cancel", selectedCancellations, c)}
-//               />
-//             ))}
-//           </FilterSection>
-
-//           <FilterSection title="Duration">
-//             {DURATION_RANGES.map((d) => (
-//               <Checkbox
-//                 key={d.label}
-//                 label={d.label}
-//                 checked={selectedDurations.includes(d.label)}
-//                 onChange={() => toggleValue("duration", selectedDurations, d.label)}
-//               />
-//             ))}
-//           </FilterSection>
-//         </aside>
-
-//         {/* ================= MAIN CONTENT ================= */}
-//         <main className="md:w-3/4 flex flex-col gap-6">
-
-//           <div className="flex items-center justify-between gap-4 bg-white p-4 rounded-2xl shadow">
-//             <input
-//               type="text"
-//               placeholder="Search by tour name"
-//               value={query}
-//               onChange={(e) =>
-//                 updateParam("destination", e.target.value)
-//               }
-//               className="w-full md:w-1/2 border border-gray-300 rounded-full px-4 py-2 focus:ring-2 focus:ring-pink-400 outline-none"
-//             />
-
-//             {/* View Toggle */}
-//             <div className="flex justify-end gap-2 mb-4">
-//               <button
-//                 className={`px-4 py-2 rounded ${view === "grid" ? "bg-pink-500 text-white" : "bg-gray-200"
-//                   }`}
-//                 onClick={() => setView("grid")}
-//               >
-//                 Grid
-//               </button>
-//               <button
-//                 className={`px-4 py-2 rounded ${view === "list" ? "bg-pink-500 text-white" : "bg-gray-200"
-//                   }`}
-//                 onClick={() => setView("list")}
-//               >
-//                 List
-//               </button>
-//             </div>
-//           </div>
-//           {/* Render Results */}
-//           {results.length === 0 ? (
-//             <p className="text-gray-500">No results found.</p>
-//           ) : view === "grid" ? (
-//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//               {results.map((exp) => (
-//                 <div
-//                   key={exp.experienceId}
-//                   className="bg-white rounded-2xl shadow p-4 flex flex-col"
-//                 >
-//                   <div className="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-500">
-//                     {/* Image */}
-//                     <div className={view === "grid" ? "shrink-0" : ""}>
-//                       <Image
-//                         src={exp.images?.[0] || "/placeholder.jpg"}
-//                         alt={exp.title}
-//                         width={400}
-//                         height={250}
-//                         className={`object-cover ${view === "grid"
-//                           ? "w-56 h-full rounded-l-2xl"
-//                           : "w-full h-52 rounded-t-2xl"
-//                           }`}
-//                       />
-//                     </div>
-//                   </div>
-//                   <h3 className="font-bold text-lg">{exp.title}</h3>
-//                   <p className="text-sm text-gray-600">{exp.tourType}</p>
-//                   <p className="mt-2 font-semibold">AED {exp.priceRange.adult}</p>
-//                   <p className="text-sm text-yellow-500"> ⭐ {exp.rating.score}</p>
-//                 </div>
-//               ))}
-//             </div>
-//           ) : (
-//             <div className="flex flex-col gap-4">
-//               {results.map((exp) => (
-//                 <div
-//                   key={exp.experienceId}
-//                   className="bg-white rounded-2xl shadow p-4 flex items-center gap-4"
-//                 >
-//                   {/* Image */}
-//                   <div className={view === "list" ? "shrink-0" : ""}>
-//                     <Image
-//                       src={exp.images?.[0] || "/placeholder.jpg"}
-//                       alt={exp.title}
-//                       width={400}
-//                       height={250}
-//                       className={`object-cover ${view === "list"
-//                         ? "w-56 h-full rounded-l-2xl"
-//                         : "w-full h-52 rounded-t-2xl"
-//                         }`}
-//                     />
-//                   </div>
-//                   <div>
-//                     <h3 className="font-bold text-lg">{exp.title}</h3>
-//                     <p className="text-sm text-gray-600">{exp.tourType}</p>
-//                     <p className="font-semibold mt-1">AED {exp.priceRange.adult}</p>
-//                     <p className="text-sm text-yellow-500">⭐ {exp.rating.score}</p>
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-//           )}
-//         </main>
-//       </div>
-//     </div>
-//   );
-// }
-
-// /* ================= REUSABLE UI ================= */
-
-// function FilterSection({ title, children }: { title: string; children: React.ReactNode }) {
-//   return (
-//     <div className="space-y-3">
-//       <h3 className="font-semibold text-gray-800">{title}</h3>
-//       <div className="space-y-2">{children}</div>
-//     </div>
-//   );
-// }
-
-// function Checkbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
-//   return (
-//     <label className="flex items-center gap-2 text-sm cursor-pointer hover:text-pink-500">
-//       <input type="checkbox" checked={checked} onChange={onChange} className="accent-pink-500" />
-//       {label}
-//     </label>
-//   );
-// }

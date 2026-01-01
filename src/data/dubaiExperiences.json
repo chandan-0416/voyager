@@ -10,11 +10,14 @@
   "tourTypes": [
     "Desert Safari",
     "City Sightseeing",
-    "Adventure",
-    "Luxury",
-    "Theme Parks",
     "Cruise & Yacht",
-    "Cultural Experiences"
+    "Dubai City Tour",
+    "Camel Riding",
+    "Abu Dhabi City Tour",
+    "Scuba Diving Tour",
+    "IMG Worlds of Adventure",
+    "Big Bus Tour Dubai"
+   
   ],
 
   "experiences": [
@@ -23,7 +26,7 @@
       "title": "Dubai Desert Safari with BBQ Dinner & Live Shows",
       "slug": "dubai-desert-safari-bbq-live-shows",
       "tourType": "Desert Safari",
-      "destination": "dubai",
+      "destination": "Dubai",
       "tags": ["Trending", "Best Seller", "Family Friendly"],
 
       "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
@@ -34,7 +37,7 @@
       ],
 
       "duration": {
-        "total": "6 hours",
+        "total": "6 Hours (Approx)",
         "pickupIncluded": true,
         "pickupTime": "3:00 PM - 3:30 PM"
       },
@@ -96,7 +99,7 @@
       "title": "Burj Khalifa At The Top – Level 124 & 125",
       "slug": "burj-khalifa-at-the-top-124-125",
       "tourType": "City Sightseeing",
-      "destination": "dubai",
+      "destination": "Dubai",
       "tags": ["Must Visit", "Iconic"],
 
       "shortDescription": "Visit the world’s tallest building and enjoy panoramic views of Dubai.",
@@ -108,7 +111,7 @@
       ],
 
       "duration": {
-        "total": "1.5 hours",
+        "total": "1.5 hours (Approx)",
         "pickupIncluded": false
       },
 
@@ -150,7 +153,7 @@
       "title": "Luxury Yacht Cruise with Dinner at Dubai Marina",
       "slug": "luxury-yacht-dinner-cruise-dubai-marina",
       "tourType": "Cruise & Yacht",
-      "destination": "dubai",
+      "destination": "Dubai",
       "tags": ["Luxury", "Couples", "Evening"],
 
       "shortDescription": "Sail through Dubai Marina on a luxury yacht with gourmet dinner.",
@@ -161,7 +164,7 @@
       ],
 
       "duration": {
-        "total": "2 hours",
+        "total": "2 Hours (Approx)",
         "boardingTime": "7:30 PM"
       },
 
@@ -198,8 +201,8 @@
       "experienceId": "4",
       "title": "Dubai City Tour with Blue Mosque & Palm Jumeirah",
       "slug": "dubai-desert-safari-bbq-live-shows",
-      "tourType": "Desert Safari",
-      "destination": "dubai",
+      "tourType": "Dubai City Tour",
+      "destination": "Dubai",
       "tags": ["Trending", "Best Seller", "Family Friendly"],
 
       "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
@@ -210,7 +213,7 @@
       ],
 
       "duration": {
-        "total": "6 hours",
+        "total": "4-5 Hours",
         "pickupIncluded": true,
         "pickupTime": "3:00 PM - 3:30 PM"
       },
@@ -271,8 +274,8 @@
       "experienceId": "5",
       "title": "Atlantis Aquaventure Waterpark Tickets",
       "slug": "dubai-desert-safari-bbq-live-shows",
-      "tourType": "Desert Safari",
-      "destination": "dubai",
+      "tourType": "Camel Riding",
+      "destination": "Dubai",
       "tags": ["Trending", "Best Seller", "Family Friendly"],
 
       "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
@@ -283,7 +286,7 @@
       ],
 
       "duration": {
-        "total": "6 hours",
+        "total": "9 Hours (Approx)",
         "pickupIncluded": true,
         "pickupTime": "3:00 PM - 3:30 PM"
       },
@@ -343,8 +346,8 @@
       "experienceId": "6",
       "title": "Dhow Cruise Dinner at Dubai Creek",
       "slug": "dubai-desert-safari-bbq-live-shows",
-      "tourType": "Desert Safari",
-      "destination": "dubai",
+      "tourType": "Abu Dhabi City Tour",
+      "destination": "Dubai",
       "tags": ["Trending", "Best Seller", "Family Friendly"],
 
       "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
@@ -355,7 +358,7 @@
       ],
 
       "duration": {
-        "total": "6 hours",
+        "total": "10 Hours (Approx)",
         "pickupIncluded": true,
         "pickupTime": "3:00 PM - 3:30 PM"
       },
@@ -416,8 +419,8 @@
       "experienceId": "7",
       "title": "Hot Air Balloon Ride Over Dubai Desert",
       "slug": "dubai-desert-safari-bbq-live-shows",
-      "tourType": "Desert Safari",
-      "destination": "dubai",
+      "tourType": "Scuba Diving Tour",
+      "destination": "Dubai",
       "tags": ["Trending", "Best Seller", "Family Friendly"],
 
       "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
@@ -428,7 +431,7 @@
       ],
 
       "duration": {
-        "total": "6 hours",
+        "total": "7 Hours",
         "pickupIncluded": true,
         "pickupTime": "3:00 PM - 3:30 PM"
       },
@@ -489,7 +492,7 @@
       "experienceId": "8",
       "title": "Global Village Entry Ticket",
       "slug": "dubai-desert-safari-bbq-live-shows",
-      "tourType": "Desert Safari",
+      "tourType": "IMG Worlds of Adventure",
       "destination": "dubai",
       "tags": ["Trending", "Best Seller", "Family Friendly"],
 
@@ -562,8 +565,8 @@
       "experienceId": "9",
       "title": "IMG Worlds of Adventure Theme Park",
       "slug": "dubai-desert-safari-bbq-live-shows",
-      "tourType": "Desert Safari",
-      "destination": "dubai",
+      "tourType": "Big Bus Tour Dubai",
+      "destination": "Dubai",
       "tags": ["Trending", "Best Seller", "Family Friendly"],
 
       "shortDescription": "Experience thrilling dune bashing followed by a traditional BBQ dinner and live entertainment.",
@@ -574,7 +577,7 @@
       ],
 
       "duration": {
-        "total": "6 hours",
+        "total": "2 Hours",
         "pickupIncluded": true,
         "pickupTime": "3:00 PM - 3:30 PM"
       },
