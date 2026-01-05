@@ -15,7 +15,7 @@ const SearchHeader = ({ query, view, updateParam }: Props) => {
         onChange={(e) =>
           updateParam("destination", e.target.value)
         }
-        className="w-full md:w-1/2 border rounded-full px-4 py-2"
+        className="w-full md:w-1/2 border border-gray-300 rounded-full px-4 py-2"
       />
 
       <div className="hidden md:flex gap-2">

@@ -1,3 +1,5 @@
+import PriceRangeSlider from "./PriceRangeSlider";
+
 type Props = {
   price: string | null;
   ratings: number[];
@@ -19,30 +21,29 @@ const FiltersSidebar = ({
     <aside className="hidden md:block md:w-1/4 bg-white border border-gray-300 rounded-2xl p-6 shadow-sm h-fit sticky">
       <div className="flex justify-between">
         <h2 className="text-xl font-bold mb-4">Filters</h2>
+
         <button
           onClick={() =>
             clearParams(["price", "rating", "cancellation"])
           }
           className="text-xl text-red-400 underline font-semibold"
         >
-          Clear filters
+          Reset All
         </button>
       </div>
 
+<hr className="border-dashed border-gray-300 mt-6 w-full" />
+
       <h3 className="font-semibold mt-4 mb-2">Price</h3>
-      {["0-150", "151-300", "301-450", "451-650", "650+"].map((p) => (
-        <button
-          key={p}
-          onClick={() => updateParam("price", p)}
-          className={`block w-full text-left px-3 py-2 rounded-lg border ${
-            price === p
-              ? "bg-pink-500 text-white border-pink-500"
-              : "border-gray-300"
-          }`}
-        >
-          {p}
-        </button>
-      ))}
+      <PriceRangeSlider
+        min={65}
+        max={800}
+        step={1}
+        value={price}
+        onChange={(val) => updateParam("price", val)}
+      />
+
+<hr className="border-dashed border-gray-300 mt-6 w-full" />
 
       <h3 className="font-semibold mt-6 mb-2">Cancellation Policy</h3>
       {[
@@ -65,6 +66,8 @@ const FiltersSidebar = ({
           {policy}
         </label>
       ))}
+
+<hr className="border-dashed border-gray-300 mt-6 w-full" />
 
       <h3 className="font-semibold mt-6 mb-2">Rating</h3>
       {[5, 4, 3, 2, 1].map((r) => (
