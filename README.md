@@ -7,7 +7,7 @@
 - show the skelton fallback when i do filter
 - correct the rating multibox selected
 - change the price range with horizontal scroll bar
-
+-  //Math.floor(x: number): number => Returns the greatest integer less than or equal to its numeric argument.
 
 
 1. pinterest - for HD photo
