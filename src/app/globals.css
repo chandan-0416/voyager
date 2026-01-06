@@ -46,14 +46,14 @@
 /* LEFT input only captures left side */
 .range-left {
   left: 0;
-  width: 50%;
+  width: 100%;
   z-index: 3;
 }
 
 /* RIGHT input only captures right side */
 .range-right {
   right: 0;
-  width: 50%;
+  width: 100%;
   z-index: 4;
 }
 
@@ -88,6 +88,7 @@
   border-radius: 50%;
   background: #ec4899;
   cursor: pointer;
+  
 }
 
 

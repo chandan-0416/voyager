@@ -17,14 +17,14 @@ const Experience = () => {
 
   return (
     <div className="min-h-screen px-4 md:px-12 pt-8 pb-24">
-      <h1 className="text-2xl md:text-3xl font-extrabold mb-8">
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 px-18">
         Choose the Tours You’re Interested In
       </h1>
 
       <div className="flex flex-col md:flex-row gap-6 max-w-7xl mx-auto">
         <FiltersSidebar {...filters} />
 
-        <main className="md:w-3/4 flex flex-col gap-6">
+        <main className="md:w-3/4 flex flex-col gap-1">
           <SearchHeader
             query={filters.query}
             view={filters.view}

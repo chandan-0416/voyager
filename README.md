@@ -1,5 +1,5 @@
 # Voyger : Tour website
-- layout of the App 
+I'm learning and working on Next.js and TypeScript  by making a  project similar to the Tour booking website.
 
 # 31-12-2025 | solve Problems
 - make the component based folder structure

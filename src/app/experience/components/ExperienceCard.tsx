@@ -1,18 +1,26 @@
 import Image from "next/image";
 import { Experience } from "../types/experience";
+import Link from "next/link";
 
 type Props = {
   item: Experience;
+  
   view: "grid" | "list";
 };
 
 const ExperienceCard = ({ item, view }: Props) => {
   return (
     <div
+    
       className={`bg-white border border-gray-300 rounded-2xl hover:shadow-lg cursor-pointer transition ${
         view === "list" ? "flex gap-5" : "flex flex-col"
       }`}
     >
+       <Link 
+       href={`/experience/${item.experienceId}`}
+      className={view === "list" ? "flex flex-1": "grid"}
+       target="_blank"
+       >
       {/* Image */}
       <div className={view === "list" ? "shrink-0" : ""}>
         <Image
@@ -58,6 +66,7 @@ const ExperienceCard = ({ item, view }: Props) => {
           {item.priceRange.currency} {item.priceRange.adult}
         </p>
       </div>
+      </Link>
     </div>
   );
 };

@@ -33,8 +33,8 @@ export default function PriceRangeSlider({
   return (
     <div className="w-full">
       <div className="flex justify-between text-sm font-medium mb-3">
-        <span>₹{minVal}</span>
-        <span>₹{maxVal}</span>
+        <span>{minVal}</span>
+        <span>{maxVal}</span>
       </div>
 
       <div className="relative h-4">
