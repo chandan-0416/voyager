@@ -1,6 +1,22 @@
 # Voyger : Tour website
 I'm learning and working on Next.js and TypeScript  by making a  project similar to the Tour booking website.
 
+# GitHUb 6 steps
+1. git init
+2. git branch -M main
+3. git add .
+4. git commit -m "Initial commit"
+5. git remote add origin https://github.com/chandan-0416/voyager.git
+6. git push -u origin main
+
+# OR
+1. git add .
+2. git commit -m "Your message"
+3. git push
+
+# Folder structure 
+- double click in the root directory it's automatic created file
+
 # 31-12-2025 | solve Problems
 - make the component based folder structure
 - loding page, error page, page not-found, 
