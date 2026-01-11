@@ -1,46 +1,51 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
 
+connect();
 
 export async function POST(request: NextRequest) {
     try {
-        await connect();
 
         const reqBody = await request.json();
-        const { username, email, password } = reqBody
-
+        const { email, password } = reqBody
         console.log(reqBody);
 
-        //check  if user already exist
+        //check  if user exist
         const user = await User.findOne({ email })
-
-        if (user) {
-            return NextResponse.json({ error: "User already exists" },
+        if (!user) {
+            return NextResponse.json({ error: "User does not exist" },
                 { status: 400 }
             )
         }
 
-        //hash password
-        const salt = await bcryptjs.genSalt(10)
-        const hashedPassword = await bcryptjs.hash
-            (password, salt)
+        // check if password is correct
+        const validPassword = await bcryptjs.compare(password, user.password)
+        if (!validPassword) {
+            return NextResponse.json({ error: "Invalid password" }, { status: 400 })
+        }
+           // create token data
+           const tokenData ={
+            id: user._id,
+            username: user.username,
+            email: user.email
+           }
+           //create token
+           const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {expiresIn: "1d"})
 
-        const newUser = new User({
-            username,
-            email,
-            password: hashedPassword
-        })
-
-        const savedUser = await newUser.save();
-        console.log(savedUser);
-
-        return NextResponse.json({
-            message: "User created successful",
+           const response = NextResponse.json({
+            message: "Login successful",
             success: true,
-            savedUser
-        })
+           })
+
+           response.cookies.set("token", token, {
+            httpOnly: true,
+           })
+           return response;
 
     } catch (error: any) {
         return NextResponse.json({ error: error.message },
